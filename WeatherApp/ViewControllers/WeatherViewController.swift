@@ -21,7 +21,9 @@ class WeatherViewController: UIViewController {
             withTitle: "Enter city name",
             message: nil,
             style: .alert
-        )
+        ) { city in
+            self.weatherManager.fetchCurrentWeather(forCity: city)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
