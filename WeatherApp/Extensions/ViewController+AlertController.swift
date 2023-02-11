@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ViewController {
+extension WeatherViewController {
     func presentSearchAlertController(withTitle title: String?, message: String?, style: UIAlertController.Style) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         alertController.addTextField { value in

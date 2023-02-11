@@ -7,12 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     
     @IBOutlet var weatherIconImageView: UIImageView!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var feelsLikeTemperatureLabel: UILabel!
+    
+    let weatherManager = NetworkManager()
     
     @IBAction func searchPressed(_ sender: UIButton) {
         self.presentSearchAlertController(
@@ -24,6 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        weatherManager.fetchCurrentWeather(forCity: "London")
     }
     
 }
