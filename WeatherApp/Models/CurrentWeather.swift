@@ -2,27 +2,30 @@
 //  Weather.swift
 //  WeatherApp
 //
-//  Created by Nikita Chekan on 11.02.2023.
+//  Created by Nikita Chekan on 12.02.2023.
 //
 
 import Foundation
 
-struct CurrentWeather: Codable {
-    let name: String
-    let main: Main
-    let weather: [Weather]
-}
-
-struct Main: Codable {
-    let temp: Double
-    let feelsLike: Double
+struct CurrentWeather {
+    let cityName: String
     
-    enum CodingKeys: String, CodingKey {
-        case temp
-        case feelsLike = "feels_like"
+    let temperature: Double
+    var temperatureString: String {
+        return "\(temperature.rounded())"
     }
-}
-
-struct Weather: Codable {
-    let id: Int
+    
+    let feelsLikeTemperature: Double
+    var feelsLikeTemperatureString: String {
+        return "\(feelsLikeTemperature.rounded())"
+    }
+    
+    let conditionCode: Int
+    
+    init?(currentWeatherData: CurrentWeatherData) {
+        cityName = currentWeatherData.name
+        temperature = currentWeatherData.main.temp
+        feelsLikeTemperature = currentWeatherData.main.feelsLike
+        conditionCode = currentWeatherData.weather.first!.id
+    }
 }
