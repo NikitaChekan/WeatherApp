@@ -21,23 +21,28 @@ class WeatherViewController: UIViewController {
             withTitle: "Enter city name",
             message: nil,
             style: .alert
-        ) { city in
+        ) { [unowned self] city in
             self.weatherManager.fetchCurrentWeather(forCity: city)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherManager.delegate = self
+        
+        weatherManager.onCompletion = { [weak self] currentWeather in
+            guard let self = self else { return }
+            self.updateInterface(weather: currentWeather)
+        }
+        
         weatherManager.fetchCurrentWeather(forCity: "London")
     }
     
-}
-
-extension WeatherViewController: NetworkManagerDelegate {
-    func updateInterface(_: NetworkManager, with currentWeather: CurrentWeather) {
-        self.cityLabel.text = currentWeather.cityName
-        self.temperatureLabel.text = currentWeather.temperatureString
-        self.feelsLikeTemperatureLabel.text = currentWeather.feelsLikeTemperatureString
+    func updateInterface(weather: CurrentWeather) {
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.temperatureString
+            self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
+            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconName)
+        }
     }
 }
 
