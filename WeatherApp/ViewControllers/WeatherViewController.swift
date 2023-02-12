@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     
@@ -15,6 +16,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet var feelsLikeTemperatureLabel: UILabel!
     
     var weatherManager = NetworkManager()
+    lazy var locationManager: CLLocationManager = {
+        let location = CLLocationManager()
+        location.delegate = self
+        location.desiredAccuracy = kCLLocationAccuracyKilometer
+        location.requestWhenInUseAuthorization()
+        return location
+    }()
     
     @IBAction func searchPressed(_ sender: UIButton) {
         self.presentSearchAlertController(
@@ -22,7 +30,7 @@ class WeatherViewController: UIViewController {
             message: nil,
             style: .alert
         ) { [unowned self] city in
-            self.weatherManager.fetchCurrentWeather(forCity: city)
+            self.weatherManager.fetchCurrentWeather(forRequestType: .cityName(city: city))
         }
     }
     override func viewDidLoad() {
@@ -33,7 +41,11 @@ class WeatherViewController: UIViewController {
             self.updateInterface(weather: currentWeather)
         }
         
-        weatherManager.fetchCurrentWeather(forCity: "London")
+//        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.locationManager.requestLocation()
+            }
+//        }
     }
     
     func updateInterface(weather: CurrentWeather) {
@@ -46,3 +58,24 @@ class WeatherViewController: UIViewController {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate {
+//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+//
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        weatherManager.fetchCurrentWeather(forRequestType: .coordinate(
+            latitude: latitude,
+            longitude: longitude
+        ))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
