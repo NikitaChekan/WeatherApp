@@ -31,7 +31,7 @@ struct CurrentWeather {
         case 800: return "sun.min.fill"
         case 801...804: return "cloud.fill"
         default:
-            return "nosing"
+            return "nosign"
         }
     }
     

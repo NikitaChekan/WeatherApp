@@ -24,7 +24,7 @@ class NetworkManager {
             case .cityName(let city):
             urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
         case .coordinate(let latitude, let longitude):
-            urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon\(longitude)&apikey=\(apiKey)&units=metric"
+            urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&apikey=\(apiKey)&units=metric"
         }
         performRequest(with: urlString)
     }

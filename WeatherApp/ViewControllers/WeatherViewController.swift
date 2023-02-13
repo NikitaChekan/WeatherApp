@@ -21,7 +21,7 @@ class WeatherViewController: UIViewController {
     lazy var locationManager: CLLocationManager = {
         let location = CLLocationManager()
         location.delegate = self
-        location.desiredAccuracy = kCLLocationAccuracyKilometer
+        location.desiredAccuracy = kCLLocationAccuracyHundredMeters
         location.requestWhenInUseAuthorization()
 //        if status == .notDetermined {
 //            location.requestWhenInUseAuthorization()
@@ -45,12 +45,8 @@ class WeatherViewController: UIViewController {
             guard let self = self else { return }
             self.updateInterface(weather: currentWeather)
         }
+        updateLocation()
         
-        DispatchQueue.global().async {
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.requestLocation()
-            }
-        }
     }
     
     func updateInterface(weather: CurrentWeather) {
@@ -61,12 +57,21 @@ class WeatherViewController: UIViewController {
             self.weatherIconImageView.image = UIImage(systemName: weather.systemIconName)
         }
     }
+    
+    func updateLocation() {
+//        DispatchQueue.main.async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.locationManager.requestLocation()
+            }
+//        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
-//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//        status = manager.authorizationStatus
+    
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        self.status = manager.requestWhenInUseAuthorization()
 //    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
