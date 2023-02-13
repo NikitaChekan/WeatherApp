@@ -9,10 +9,21 @@ import Foundation
 
 struct CurrentWeather {
     let cityName: String
+    let weatherDescription: String
     
     let temperature: Double
     var temperatureString: String {
         return String(format: "%.1f", temperature)
+    }
+    
+    let maxTemperature: Double
+    var maxTemperatureString: String {
+        return String(format: "%.0f", maxTemperature)
+    }
+    
+    let minTemperature: Double
+    var minTemperatureString: String {
+        return String(format: "%.0f", minTemperature)
     }
     
     let feelsLikeTemperature: Double
@@ -38,7 +49,10 @@ struct CurrentWeather {
     init?(currentWeatherData: CurrentWeatherData) {
         cityName = currentWeatherData.name
         temperature = currentWeatherData.main.temp
+        maxTemperature = currentWeatherData.main.tempMax
+        minTemperature = currentWeatherData.main.tempMin
         feelsLikeTemperature = currentWeatherData.main.feelsLike
         conditionCode = currentWeatherData.weather.first!.id
+        weatherDescription = currentWeatherData.weather.first!.main
     }
 }

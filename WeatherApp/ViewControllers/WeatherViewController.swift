@@ -55,6 +55,9 @@ class WeatherViewController: UIViewController {
     func updateInterface(weather: CurrentWeather) {
         DispatchQueue.main.async {
             self.cityLabel.text = weather.cityName
+            self.weatherDescriptionLabel.text = weather.weatherDescription
+            self.maximumTemperatureLabel.text = weather.maxTemperatureString
+            self.minimumTemperatureLabel.text = weather.minTemperatureString
             self.temperatureLabel.text = weather.temperatureString
             self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
             self.weatherIconImageView.image = UIImage(systemName: weather.systemIconName)
