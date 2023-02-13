@@ -14,6 +14,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var temperatureLabel: UILabel!
     @IBOutlet var feelsLikeTemperatureLabel: UILabel!
+    @IBOutlet var weatherDescriptionLabel: UILabel!
+    @IBOutlet var maximumTemperatureLabel: UILabel!
+    @IBOutlet var minimumTemperatureLabel: UILabel!
     
     var weatherManager = NetworkManager()
     
