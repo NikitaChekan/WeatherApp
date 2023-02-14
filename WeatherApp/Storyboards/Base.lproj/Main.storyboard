@@ -81,10 +81,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l3k-p1-rBV">
-                                                <rect key="frame" x="74.666666666666657" y="83.666666666666686" width="58.333333333333343" height="36"/>
+                                                <rect key="frame" x="59" y="83.666666666666686" width="74" height="36"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZM-IW-OIw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="58.333333333333336" height="36"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZM-IW-OIw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="36"/>
                                                         <color key="tintColor" name="infoColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                                         <color key="textColor" name="infoColor"/>
