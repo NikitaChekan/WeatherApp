@@ -204,7 +204,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="46j-qX-yMH">
-                                                        <rect key="frame" x="23.333333333333329" y="38" width="73.666666666666671" height="44.333333333333343"/>
+                                                        <rect key="frame" x="21.333333333333329" y="38" width="77.666666666666671" height="44.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhp-5B-Gvf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="44.333333333333336"/>
@@ -213,8 +213,8 @@
                                                                 <color key="textColor" name="infoColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-jf-Skg">
-                                                                <rect key="frame" x="27.666666666666671" y="0.0" width="46" height="44.333333333333336"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-jf-Skg">
+                                                                <rect key="frame" x="27.666666666666671" y="0.0" width="50" height="44.333333333333336"/>
                                                                 <color key="tintColor" name="infoColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="37"/>
                                                                 <color key="textColor" name="infoColor"/>
