@@ -31,6 +31,25 @@ struct CurrentWeather {
         return String(format: "%.1f", feelsLikeTemperature)
     }
     
+    let currentVisibility: Int
+    var currentVisibilityString: String {
+        return String(currentVisibility / 1000)
+    }
+    
+    let windSpeed: Double
+    var windSpeedString: String {
+        return String(format: "%.0f", windSpeed * 3.6)
+    }
+    
+    let currentPressure: Int
+    var currentPressureString: String {
+        return String(currentPressure)
+    }
+    let currentHumidity: Int
+    var currentHumidityString: String {
+        return String(currentHumidity)
+    }
+    
     let conditionCode: Int
     var systemIconName: String { /// https://openweathermap.org/weather-conditions
         switch conditionCode {
@@ -54,5 +73,9 @@ struct CurrentWeather {
         feelsLikeTemperature = currentWeatherData.main.feelsLike
         conditionCode = currentWeatherData.weather.first!.id
         weatherDescription = currentWeatherData.weather.first!.main
+        currentVisibility = currentWeatherData.visibility
+        currentHumidity = currentWeatherData.main.humidity
+        currentPressure = currentWeatherData.main.pressure
+        windSpeed = currentWeatherData.wind.speed
     }
 }
