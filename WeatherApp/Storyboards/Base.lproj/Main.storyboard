@@ -411,11 +411,15 @@
                     <connections>
                         <outlet property="cityLabel" destination="mu8-d2-BgL" id="cQk-lz-SzP"/>
                         <outlet property="feelsLikeTemperatureLabel" destination="12E-gm-ngs" id="CmN-d1-e5y"/>
+                        <outlet property="humidityLabel" destination="eO3-Dh-lA9" id="fLC-mH-T30"/>
                         <outlet property="maximumTemperatureLabel" destination="A3h-Yw-Jav" id="Nem-f3-LPg"/>
                         <outlet property="minimumTemperatureLabel" destination="xsE-8B-NPd" id="5Pg-jp-5rr"/>
+                        <outlet property="pressureLabel" destination="OYz-g0-0Dd" id="UVj-Oj-mnl"/>
                         <outlet property="temperatureLabel" destination="fQp-la-Gyr" id="Vdi-eL-dKS"/>
+                        <outlet property="visibilityLabel" destination="vhp-5B-Gvf" id="3U2-Km-4aK"/>
                         <outlet property="weatherDescriptionLabel" destination="RZM-IW-OIw" id="mp6-8d-k6M"/>
                         <outlet property="weatherIconImageView" destination="v36-F8-sea" id="bL1-y7-PTO"/>
+                        <outlet property="windSpeedLabel" destination="EqH-B6-j7A" id="rSf-Kk-eM6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

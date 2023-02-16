@@ -17,6 +17,10 @@ class WeatherViewController: UIViewController {
     @IBOutlet var weatherDescriptionLabel: UILabel!
     @IBOutlet var maximumTemperatureLabel: UILabel!
     @IBOutlet var minimumTemperatureLabel: UILabel!
+    @IBOutlet var visibilityLabel: UILabel!
+    @IBOutlet var humidityLabel: UILabel!
+    @IBOutlet var pressureLabel: UILabel!
+    @IBOutlet var windSpeedLabel: UILabel!
     
     var weatherManager = NetworkManager()
     
@@ -34,7 +38,7 @@ class WeatherViewController: UIViewController {
     
     @IBAction func searchPressed(_ sender: UIButton) {
         self.presentSearchAlertController(
-            withTitle: "Enter city name",
+            withTitle: "Enter city name:",
             message: nil,
             style: .alert
         ) { [unowned self] city in
@@ -60,6 +64,11 @@ class WeatherViewController: UIViewController {
             self.minimumTemperatureLabel.text = weather.minTemperatureString
             self.temperatureLabel.text = weather.temperatureString
             self.feelsLikeTemperatureLabel.text = weather.feelsLikeTemperatureString
+            self.visibilityLabel.text = weather.currentVisibilityString
+            self.humidityLabel.text = weather.currentHumidityString
+            self.pressureLabel.text = weather.currentPressureString
+            self.windSpeedLabel.text = weather.windSpeedString
+            
             self.weatherIconImageView.image = UIImage(systemName: weather.systemIconName)
         }
     }
